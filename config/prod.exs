@@ -10,7 +10,8 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :slackir, SlackirWeb.Endpoint,
-  http: [:inet6, port: System.get_env("PORT") || 4000],
+  http: [port: {:system, "PORT"}],
+  #http: [:inet6, port: System.get_env("PORT") || 4000],
   url: [scheme: "https", host: "mysterious-meadow-6277.herokuapp.com", port: 443],
 force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/cache_manifest.json",
